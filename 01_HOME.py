@@ -6,15 +6,15 @@ from PIL import Image
 st.set_page_config(page_title="asterix online courses", page_icon=":tada:", layout="wide")
 
 
-def load_lottieurl(url):
+def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
         return None
     return r.json()
 
 
-lottie_coding = "https://lottie.host/8dd72c14-ee38-47ca-b1cb-1ecd288e04de/dKmyFttO6G.json"
-
+lottie_url = "https://lottie.host/8dd72c14-ee38-47ca-b1cb-1ecd288e04de/dKmyFttO6G.json"
+lottie_json = load_lottieurl(lottie_url)
 
 
 def homepage():
@@ -42,7 +42,7 @@ def homepage():
                 """)
 
         with right_column:
-            st_lottie(lottie_coding, height=300, key="coding")
+            st_lottie(lottie_json, height=300, key="coding")
 
 
 if True:
